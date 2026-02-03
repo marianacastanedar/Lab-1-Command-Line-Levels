@@ -114,3 +114,18 @@ Usé `find` desde la raíz del sistema (`/`) para buscar en todo el servidor. Fi
 
 **Contraseña obtenida:**
 morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+## Bandit Level 7
+**Objetivo:**  
+Encontrar la contraseña que está al lado de la palabra "millionth" en el archivo data.txt.
+
+**Comandos utilizados:**
+```bash
+grep millionth data.txt
+```
+
+**Explicación:**
+El archivo `data.txt` tenía un montón de líneas. Usé `grep` para buscar la palabra "millionth" y me mostró solo la línea que la contenía. Ahí estaba la contraseña al lado.
+
+**Contraseña obtenida:**
+dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
