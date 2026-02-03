@@ -14,3 +14,19 @@ Pues básicamente me conecté por SSH con el usuario bandit0 y contraseña bandi
 
 **Contraseña obtenida:**
  ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+
+## Bandit Level 1
+**Objetivo:**  
+Leer un archivo con nombre especial (-) para obtener la contraseña del siguiente nivel.
+
+**Comandos utilizados:**
+```bash
+ls
+cat ./-
+```
+
+**Explicación:**
+El archivo se llamaba `-`, que es un carácter especial en bash. Si intentas hacer `cat -` se queda esperando input del teclado porque `-` representa stdin. La solución fue usar `cat ./-` para especificar la ruta relativa del archivo y que bash lo interprete como un archivo literal.
+
+**Contraseña obtenida:**
+263JGJPfgU6LtdEvgfWU1XP5yac29mFx
