@@ -81,3 +81,20 @@ Entré al directorio `inhere` y había un montón de archivos que empezaban con 
 
 **Contraseña obtenida:**
 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+## Bandit Level 5
+**Objetivo:**  
+Encontrar un archivo con propiedades específicas: legible por humanos, 1033 bytes de tamaño y no ejecutable.
+
+**Comandos utilizados:**
+```bash
+cd inhere
+find . -type f -size 1033c ! -executable
+cat ./maybehere07/.file2
+```
+
+**Explicación:**
+Entré al directorio `inhere` que tenía un montón de subdirectorios. Usé `find` con filtros para buscar archivos (`-type f`) de exactamente 1033 bytes (`-size 1033c`) que no fueran ejecutables (`! -executable`). El comando encontró `./maybehere07/.file2`. Le hice `cat` y salió la contraseña.
+
+**Contraseña obtenida:**
+HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
