@@ -26,7 +26,7 @@ cat ./-
 ```
 
 **Explicación:**
-El archivo se llamaba `-`, que es un carácter especial en bash. Si intentas hacer `cat -` se queda esperando input del teclado porque `-` representa stdin. La solución fue usar `cat ./-` para especificar la ruta relativa del archivo y que bash lo interprete como un archivo literal.
+El archivo se llamaba `-`, que es un carácter especial en bash. Si pongo `cat -` se queda esperando input del teclado porque `-` representa otra cosa. La solución es usar `cat ./-` para especificar la ruta relativa del archivo y que bash lo interprete como un archivo literal.
 
 **Contraseña obtenida:**
 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
@@ -42,7 +42,7 @@ cat -- "--spaces in this filename--"
 ```
 
 **Explicación:**
-El archivo se llamaba `--spaces in this filename--`. Tenía dos problemas: espacios en el nombre y empezaba con `--` que bash interpreta como opciones del comando. La solución fue usar `cat --` para indicarle a cat que lo siguiente no son opciones, sino el nombre del archivo, y ponerlo entre comillas por los espacios.
+El archivo se llamaba `--spaces in this filename--`. Tenía dos problemas: espacios en el nombre y empezaba con `--` que bash interpreta como parte digamos del comando. La solución fue usar `cat --` para indicarle a cat que lo siguiente no son opciones, sino el nombre del archivo y ponerlo entre comillas por los espacios.
 
 **Contraseña obtenida:**
 MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
@@ -59,7 +59,7 @@ cat ...Hiding-From-You
 ```
 
 **Explicación:**
-Entré al directorio `inhere` y usé `ls -a` para listar todos los archivos, incluyendo los ocultos (los que empiezan con punto). Ahí apareció el archivo `...Hiding-From-You` que tenía tres puntos al inicio. Le hice `cat` y salió la contraseña.
+Entré al directorio `inhere` y usé `ls -a` para listar todos los archivos, alli salen los ocultos (los que empiezan con punto). Ahí apareció el archivo `...Hiding-From-You` que tenía tres puntos al inicio. Le hice `cat` y salió la contraseña.
 
 **Contraseña obtenida:**
 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
@@ -77,7 +77,7 @@ cat ./-file07
 ```
 
 **Explicación:**
-Entré al directorio `inhere` y había un montón de archivos que empezaban con guión. Usé `file ./*` para verificar el tipo de cada archivo. Todos decían "data" excepto `-file07` que decía "ASCII text", o sea, el único legible. Le hice `cat ./-file07` (con `./` porque empieza con guión) y salió la contraseña.
+Entré al directorio `inhere` y había un montón de archivos que empezaban con guión. Usé `file ./*` para verificar el tipo de cada archivo. Todos decían "data" excepto `-file07` que decía "ASCII text" o sea el único que podía ser. Le hice `cat ./-file07` (con `./` porque como empieza con guión) y salió la contraseña.
 
 **Contraseña obtenida:**
 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
@@ -94,7 +94,7 @@ cat ./maybehere07/.file2
 ```
 
 **Explicación:**
-Entré al directorio `inhere` que tenía un montón de subdirectorios. Usé `find` con filtros para buscar archivos (`-type f`) de exactamente 1033 bytes (`-size 1033c`) que no fueran ejecutables (`! -executable`). El comando encontró `./maybehere07/.file2`. Le hice `cat` y salió la contraseña.
+Entré al directorio `inhere` que tenía un montón de subdirectorios. Usé `find` con filtros para buscar archivos (`-type f`) de 1033 bytes (`-size 1033c`) que no fueran ejecutables (`! -executable`). El comando encontró `./maybehere07/.file2`. Le hice `cat` y salió la contraseña.
 
 **Contraseña obtenida:**
 HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
@@ -110,7 +110,7 @@ cat /var/lib/dpkg/info/bandit7.password
 ```
 
 **Explicación:**
-Usé `find` desde la raíz del sistema (`/`) para buscar en todo el servidor. Filtré por archivos (`-type f`) del usuario bandit7 (`-user bandit7`), grupo bandit6 (`-group bandit6`) y tamaño de 33 bytes (`-size 33c`). El `2>/dev/null` redirige los errores de permisos denegados para que no llenen la pantalla. Encontró el archivo en `/var/lib/dpkg/info/bandit7.password`, le hice `cat` y salió la contraseña.
+Usé `find` desde la raíz (`/`) para buscar en todo el como servidor. Filtré por archivos (`-type f`) del usuario bandit7 (`-user bandit7`) grupo bandit6 (`-group bandit6`) y tamaño de 33 bytes (`-size 33c`). El `2>/dev/null` pone los errores de permisos denegados para que no llenen la pantalla. Encontró el archivo en `/var/lib/dpkg/info/bandit7.password`, le hice `cat` y salió la contraseña.
 
 **Contraseña obtenida:**
 morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
@@ -140,7 +140,7 @@ sort data.txt | uniq -u
 ```
 
 **Explicación:**
-El archivo `data.txt` tenía muchas líneas repetidas y solo una única. Usé `sort` para ordenar todas las líneas (requisito para que `uniq` funcione correctamente) y luego `uniq -u` para mostrar solo las líneas que aparecen una sola vez. Salió la contraseña.
+El archivo `data.txt` tenía muchas líneas repetidas y solo una como diferente o unica. Usé `sort` para ordenar todas las líneas (para que `uniq` funcione) y luego `uniq -u` para mostrar solo las líneas que aparecen una vez. Y alli salió la contraseña.
 
 **Contraseña obtenida:**
 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
@@ -155,7 +155,22 @@ strings data.txt | grep "=="
 ```
 
 **Explicación:**
-El archivo `data.txt` tenía datos binarios mezclados con texto. Usé `strings` para extraer solo las cadenas de texto legibles y luego `grep "=="` para filtrar las líneas que contenían varios signos igual. Ahí apareció la contraseña precedida por `==========`.
+El archivo `data.txt` tenía datos binarios mezclados con texto. Usé `strings` para extraer solo las cadenas de texto legibles y luego `grep "=="` para filtrar las líneas que tengan varios signos igual. Ahí apareció la contraseña luego de los `==========`.
 
 **Contraseña obtenida:**
 FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+## Bandit Level 10
+**Objetivo:**  
+Decodificar un archivo que contiene datos en base64 para obtener la contraseña.
+
+**Comandos utilizados:**
+```bash
+base64 -d data.txt
+```
+
+**Explicación:**
+El archivo estaba codificado en base64. Use `base64 -d` para decodificarlo ( `-d` es decode) y salió el texto con la contraseña.
+
+**Contraseña obtenida:**
+dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
