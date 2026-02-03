@@ -98,3 +98,19 @@ Entré al directorio `inhere` que tenía un montón de subdirectorios. Usé `fin
 
 **Contraseña obtenida:**
 HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+
+## Bandit Level 6
+**Objetivo:**  
+Encontrar un archivo en todo el servidor con propiedades específicas: usuario bandit7, grupo bandit6 y 33 bytes de tamaño.
+
+**Comandos utilizados:**
+```bash
+find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
+cat /var/lib/dpkg/info/bandit7.password
+```
+
+**Explicación:**
+Usé `find` desde la raíz del sistema (`/`) para buscar en todo el servidor. Filtré por archivos (`-type f`) del usuario bandit7 (`-user bandit7`), grupo bandit6 (`-group bandit6`) y tamaño de 33 bytes (`-size 33c`). El `2>/dev/null` redirige los errores de permisos denegados para que no llenen la pantalla. Encontró el archivo en `/var/lib/dpkg/info/bandit7.password`, le hice `cat` y salió la contraseña.
+
+**Contraseña obtenida:**
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
