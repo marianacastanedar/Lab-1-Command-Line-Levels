@@ -129,3 +129,18 @@ El archivo `data.txt` tenía un montón de líneas. Usé `grep` para buscar la p
 
 **Contraseña obtenida:**
 dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+## Bandit Level 8
+**Objetivo:**  
+Encontrar la única línea de texto que aparece solo una vez en el archivo data.txt.
+
+**Comandos utilizados:**
+```bash
+sort data.txt | uniq -u
+```
+
+**Explicación:**
+El archivo `data.txt` tenía muchas líneas repetidas y solo una única. Usé `sort` para ordenar todas las líneas (requisito para que `uniq` funcione correctamente) y luego `uniq -u` para mostrar solo las líneas que aparecen una sola vez. Salió la contraseña.
+
+**Contraseña obtenida:**
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
