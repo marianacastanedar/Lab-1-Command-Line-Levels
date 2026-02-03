@@ -144,3 +144,18 @@ El archivo `data.txt` tenía muchas líneas repetidas y solo una única. Usé `s
 
 **Contraseña obtenida:**
 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+## Bandit Level 9
+**Objetivo:**  
+Encontrar la contraseña en un archivo que contiene datos binarios, precedida por varios caracteres '='.
+
+**Comandos utilizados:**
+```bash
+strings data.txt | grep "=="
+```
+
+**Explicación:**
+El archivo `data.txt` tenía datos binarios mezclados con texto. Usé `strings` para extraer solo las cadenas de texto legibles y luego `grep "=="` para filtrar las líneas que contenían varios signos igual. Ahí apareció la contraseña precedida por `==========`.
+
+**Contraseña obtenida:**
+FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
