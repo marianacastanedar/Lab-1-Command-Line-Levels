@@ -46,3 +46,20 @@ El archivo se llamaba `--spaces in this filename--`. Tenía dos problemas: espac
 
 **Contraseña obtenida:**
 MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+
+## Bandit Level 3
+**Objetivo:**  
+Encontrar la contraseña en un archivo oculto dentro del directorio inhere.
+
+**Comandos utilizados:**
+```bash
+cd inhere
+ls -a
+cat ...Hiding-From-You
+```
+
+**Explicación:**
+Entré al directorio `inhere` y usé `ls -a` para listar todos los archivos, incluyendo los ocultos (los que empiezan con punto). Ahí apareció el archivo `...Hiding-From-You` que tenía tres puntos al inicio. Le hice `cat` y salió la contraseña.
+
+**Contraseña obtenida:**
+2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
