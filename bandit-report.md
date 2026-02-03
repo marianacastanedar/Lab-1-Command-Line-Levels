@@ -63,3 +63,21 @@ Entré al directorio `inhere` y usé `ls -a` para listar todos los archivos, inc
 
 **Contraseña obtenida:**
 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+
+## Bandit Level 4
+**Objetivo:**  
+Encontrar el único archivo legible por humanos en el directorio inhere.
+
+**Comandos utilizados:**
+```bash
+cd inhere
+ls
+file ./*
+cat ./-file07
+```
+
+**Explicación:**
+Entré al directorio `inhere` y había un montón de archivos que empezaban con guión. Usé `file ./*` para verificar el tipo de cada archivo. Todos decían "data" excepto `-file07` que decía "ASCII text", o sea, el único legible. Le hice `cat ./-file07` (con `./` porque empieza con guión) y salió la contraseña.
+
+**Contraseña obtenida:**
+4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
